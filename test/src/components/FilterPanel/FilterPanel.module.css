@@ -1,0 +1,248 @@
+@import "../../styles/theme.css";
+
+.filterOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.filterPanel {
+  background-color: var(--bg-primary);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.filterHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.filterTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-primary);
+}
+
+.filterTitle h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+.closeButton:hover {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.filterContent {
+  padding: 1.5rem;
+}
+
+.filterGroup {
+  margin-bottom: 1.5rem;
+}
+
+.filterLabel {
+  display: block;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.rangeInputs {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.rangeSeparator {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.rangeInput {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+}
+
+.rangeInput:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-tertiary);
+}
+
+.filterActions {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.resetButton {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.resetButton:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.applyButton {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--accent-primary);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.applyButton:hover {
+  background-color: var(--accent-secondary);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .filterOverlay {
+    padding: 0;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .filterPanel {
+    width: 100vw;
+    max-width: none;
+    border-radius: 0.75rem 0.75rem 0 0;
+    position: fixed;
+    bottom: 0;
+    max-height: 80vh;
+    animation: slideUp 0.3s ease;
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .filterHeader {
+    padding: 0.75rem 1rem;
+  }
+
+  .filterTitle h3 {
+    font-size: 1rem;
+  }
+
+  .closeButton {
+    padding: 0.5rem;
+  }
+
+  .filterContent {
+    padding: 0.75rem 1rem;
+  }
+
+  .filterGroup {
+    margin-bottom: 1rem;
+  }
+
+  .filterLabel {
+    font-size: 0.875rem;
+  }
+
+  .rangeInputs {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .rangeSeparator {
+    text-align: center;
+  }
+
+  .rangeInput {
+    width: 100%;
+    height: 2.25rem;
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .filterActions {
+    padding: 0.75rem 1rem;
+    gap: 0.5rem;
+  }
+
+  .resetButton,
+  .applyButton {
+    height: 2.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .filterTitle h3 {
+    font-size: 0.875rem;
+  }
+
+  .filterLabel {
+    font-size: 0.75rem;
+  }
+
+  .rangeInput {
+    height: 2rem;
+    padding: 0.5rem;
+  }
+
+  .rangeSeparator {
+    font-size: 0.75rem;
+  }
+
+  .resetButton,
+  .applyButton {
+    height: 2.25rem;
+    font-size: 0.75rem;
+  }
+}

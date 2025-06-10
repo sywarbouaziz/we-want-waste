@@ -1,0 +1,319 @@
+@import "../../styles/theme.css";
+
+.skipGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 300px));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+.skipCard {
+  background-color: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.skipCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-primary);
+}
+
+.skipCard.selected {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-tertiary);
+  background-color: var(--accent-tertiary);
+  z-index: 1;
+}
+
+.skipImageContainer {
+  position: relative;
+  margin-bottom: 1rem;
+  width: 100%;
+  height: 180px;
+  max-width: 100%;
+}
+
+.skipImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  background-color: var(--bg-secondary);
+}
+
+.sizeLabel {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  background-color: var(--accent-primary);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.skipInfo {
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.skipName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.skipCapacity {
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hirePeriod {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.wasteInfo {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.priceSection {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.price {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--accent-primary);
+}
+
+.priceNote {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.selectButton {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--accent-primary);
+  border-radius: 0.5rem;
+  background-color: transparent;
+  color: var(--accent-primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.selectButton:hover {
+  background-color: var(--accent-primary);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.selectButton.selected {
+  background-color: var(--accent-primary);
+  color: white;
+}
+
+.restrictionBadge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 50%, #dc4c64 100%);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 0 0 0 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+  transform: rotate(0deg);
+  transition: all 0.3s ease;
+  min-width: 140px;
+  max-width: 80%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.restrictionBadge:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+.badgeIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.badgeContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.125rem;
+}
+
+.badgeTitle {
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.badgeSubtext {
+  font-weight: 500;
+  font-size: 0.625rem;
+  opacity: 0.9;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .skipGrid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 360px));
+    gap: 1rem;
+    padding: 0 0.5rem;
+    justify-content: center;
+  }
+
+  .skipCard {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .skipCard:hover {
+    transform: none;
+  }
+
+  .skipCard.selected {
+    transform: none;
+    z-index: 1;
+  }
+
+  .skipImageContainer {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .restrictionBadge {
+    top: -6px;
+    right: -6px;
+    padding: 0.5rem 0.75rem;
+    min-width: 120px;
+    max-width: 80%;
+  }
+
+  .badgeTitle {
+    font-size: 0.7rem;
+  }
+
+  .badgeSubtext {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skipGrid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
+    padding: 0 0.25rem;
+  }
+
+  .skipCard {
+    padding: 0.75rem;
+    transform: none !important;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .skipCard:hover {
+    transform: none !important;
+  }
+
+  .skipCard.selected {
+    transform: none !important;
+    z-index: 1;
+  }
+
+  .price {
+    font-size: 1.5rem;
+  }
+
+  .skipImageContainer {
+    height: 150px;
+  }
+
+  .skipImage {
+    height: 150px;
+  }
+
+  .restrictionBadge {
+    top: -4px;
+    right: -4px;
+    padding: 0.4rem 0.6rem;
+    min-width: 100px;
+    max-width: 80%;
+    gap: 0.25rem;
+  }
+
+  .badgeIcon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .badgeTitle {
+    font-size: 0.65rem;
+  }
+
+  .badgeSubtext {
+    font-size: 0;
+  }
+}
